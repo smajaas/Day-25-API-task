@@ -3,7 +3,7 @@
 let timer
 let deleteFirstPhotoDelay
 
-//Use try catch to avoid throwing huge error. this function is to fetch from public API
+//Use try catch to avoid throwing huge error. this start() function is to fetch from public API
 async function start() {
   try {
     const response = await fetch("https://dog.ceo/api/breeds/list/all")
@@ -16,7 +16,7 @@ async function start() {
 
 start()
 
-//To display the breed list in dropdown list
+//To display the breed list in dropdown list. Using dynamic js 
 
 function createBreedList(breedList) {
   document.getElementById("breed").innerHTML = `
@@ -50,6 +50,7 @@ function createSlideshow(images) {
   <div class="slide" style="background-image: url('${images[0]}')"></div>
   <div class="slide" style="background-image: url('${images[1]}')"></div>
   `
+    //Set Timeout function between slides
   currentPosition += 2
   if (images.length == 2) currentPosition = 0
   timer = setInterval(nextSlide, 3000)
